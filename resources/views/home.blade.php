@@ -260,21 +260,24 @@ $preference->auto_return = "success";
             </div>
             </form>
            
-           
-
-
-            <!-- Stream video via webcam -->
-            <div class="video-wrap">
-                <video id="video" playsinline autoplay></video>
-            </div>
-
-            <!-- Trigger canvas web API -->
-            <div class="controller">
-                <!-- <button id="snap">Capture</button> -->
-            </div>
-
-            <!-- Webcam video snapshot -->
-            <canvas id="canvas" width="640" height="480"></canvas>
+            <h1>Grabar vídeo de la webcam y audio del micrófono con JavaScript</h1>
+                <a href="//parzibyte.me/blog" target="_blank">By Parzibyte</a>
+                <div>
+                    <label for="dispositivosDeAudio">Micrófono:</label><br>
+                    <select name="dispositivosDeAudio" id="dispositivosDeAudio"></select>
+                    <br><br>
+                    <label for="dispositivosDeVideo">Cámara:</label><br>
+                    <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
+                    <br><br>
+                    <video muted="muted" id="video"></video>
+                    <br><br>
+                    <p id="duracion"></p>
+                    <br>
+                    <button id="btnComenzarGrabacion">Comenzar</button>
+                    <button id="btnDetenerGrabacion">Detener</button>
+                </div>
+                <script src="../js/script.js"></script>
+            
 
                     </div>
                     <!-- @if(auth()->user()->cart->details->count())
