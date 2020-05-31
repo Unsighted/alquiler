@@ -21,7 +21,7 @@ class CartController extends Controller
     	// $admins = User::where('admin', true)->get();
     	// Mail::to($admins)->send(new NewOrder($client, $cart));
 
-    	$notification = 'Tu pedido se ha registrado correctamente. Te contactaremos pronto vía mail!';
+    	$notification = 'Tu sesión de camsex se ha iniciado correctamente. pronto iniciará la transmisión!';
     	return back()->with(compact('notification'));
     }
 }

@@ -10,7 +10,7 @@
     <div class="container">
 
         <div class="section">
-            <h2 class="title text-center">Editar producto seleccionado</h2>
+            <h2 class="title text-center">Editar modelo seleccionada</h2>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -28,14 +28,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                            <label class="control-label">Nombre del producto</label>
+                            <label class="control-label">Nombre de modelo</label>
                             <input type="text" class="form-control" name="name" value="{{ old('name', $product->name) }}">
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                        <label class="control-label">Precio del producto</label>
+                        <label class="control-label">Precio de modelo</label>
                         <input type="number" step="0.01" class="form-control" name="price" value="{{ old('price', $product->price) }}">
                         </div>
                     </div>

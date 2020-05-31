@@ -13,11 +13,11 @@
         <div class="section text-center">
           <div class="w3-container w3-responsive w3-threequarter" style="height:500px;">
               <div class="w3-container w3-card-4 w3-padding w3-margin-bottom" style="background-color: #9c27b0">
-                <h4 style="color: rgb(255, 255, 255);">Listado de Productos</h4>
+                <h4 style="color: rgb(255, 255, 255);">Listado de Modelos</h4>
               </div>
             <div class="team">
                 <div class="row">
-                    <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round" style="margin-bottom: 45px">Nuevo producto</a>
+                    <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round" style="margin-bottom: 45px">Nueva modelo</a>
                   <table class = "w3-table w3-striped w3-margin-bottom w3-centered w3-card-4">
                         <thead>
                             <tr style="color: rgb(255, 255, 255); background-color:rgb(221, 104, 212);">

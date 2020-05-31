@@ -10,7 +10,7 @@
     <div class="container">
 
         <div class="section">
-            <h2 class="title text-center">Registrar nuevo producto</h2>
+            <h2 class="title text-center">Registrar nueva modelo</h2>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -28,14 +28,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                            <label class="control-label">Nombre del producto</label>
+                            <label class="control-label">Nombre de modelo</label>
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                            <label class="control-label">Precio del producto</label>
+                            <label class="control-label">Precio de modelo</label>
                             <input type="number" class="form-control" name="price" value="{{ old('price') }}">
                         </div>
                     </div>
@@ -51,7 +51,7 @@
 
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                            <label class="control-label">Categoría del producto</label>
+                            <label class="control-label">Categoría de modelo</label>
                             <select class="form-control" name="category_id">
                                 <option value="0">General</option>
                                 @foreach ($categories as $category)
@@ -66,7 +66,7 @@
 
                 <textarea class="form-control" placeholder="Descripción extensa del producto" rows="5" name="long_description">{{ old('long_description') }}</textarea>
 
-                <button class="btn btn-primary">Registrar producto</button>
+                <button class="btn btn-primary">Registrar modelo</button>
                 <a href="{{ url('/admin/products') }}" class="btn btn-default">Cancelar</a>
             </form>
         </div>
