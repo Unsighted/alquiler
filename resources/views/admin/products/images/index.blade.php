@@ -5,19 +5,19 @@
 @section('body-class', 'product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/sado.jpg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('img/wallpaperccc.jpg') }}');">
 </div>
 
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
-            <h2 class="title">Imágenes del producto "{{ $product->name }}"</h2>
+            <h2 class="title">Imágenes de la modelo "{{ $product->name }}"</h2>
 
             <form method="post" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="file" name="photo" required>
                 <button type="submit" class="btn btn-primary btn-round">Subir nueva imagen</button>
-                <a href="{{ url('/admin/products') }}" class="btn btn-default btn-round">Volver al listado de productos</a>
+                <a href="{{ url('/admin/products') }}" class="btn btn-default btn-round">Volver al listado de modelos</a>
             </form>
 
             <hr>

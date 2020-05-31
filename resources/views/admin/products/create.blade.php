@@ -3,7 +3,7 @@
 @section('body-class', 'product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/city.jpg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('img/wallpaperccc.jpg') }}');">
 </div>
 
 <div class="main main-raised">
@@ -26,7 +26,7 @@
                 {{ csrf_field() }}
 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group label-floating">
                             <label class="control-label">Nombre de modelo</label>
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                          <div class="form-group label-floating">
                             <label class="control-label">Descripción corta</label>
                             <input type="text" class="form-control" name="description" value="{{ old('description') }}"> 
@@ -60,11 +60,12 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
-
-
-                <textarea class="form-control" placeholder="Descripción extensa del producto" rows="5" name="long_description">{{ old('long_description') }}</textarea>
+                    <div class="col-sm-6">
+                        <div class="form-group label-floating">
+                            <textarea class="form-control" placeholder="Descripción extensa del producto" rows="5" name="long_description">{{ old('long_description') }}</textarea>
+                        </div>
+                    </div>
+            </div>
 
                 <button class="btn btn-primary">Registrar modelo</button>
                 <a href="{{ url('/admin/products') }}" class="btn btn-default">Cancelar</a>
