@@ -18,8 +18,8 @@ class CartController extends Controller
     	$cart->order_date = Carbon::now(); // Obtiene la hora de orden automáticamente.
     	$cart->save(); // UPDATE - Actualiza el carrito.
 
-    	$admins = User::where('admin', true)->get();
-    	Mail::to($admins)->send(new NewOrder($client, $cart));
+    	// $admins = User::where('admin', true)->get();
+    	// Mail::to($admins)->send(new NewOrder($client, $cart));
 
     	$notification = 'Tu pedido se ha registrado correctamente. Te contactaremos pronto vía mail!';
     	return back()->with(compact('notification'));
