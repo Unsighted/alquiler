@@ -13,7 +13,7 @@ class EmailController extends Controller
     public function questions(Request $request)
     {
 
-        $motoempresa = 'Motoempresa';
+        $camsessions = 'Camsessions';
 
         if(preg_match('/^[a-zA-Z\s]+$/', $_REQUEST["name"]) &&
 			preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_REQUEST["email"]) &&
@@ -24,10 +24,10 @@ class EmailController extends Controller
         $message = $_REQUEST['message'];
 
 
-        Mail::send('mail.email', $request->all(), function($msj) use($name, $email, $message, $motoempresa){
+        Mail::send('mail.email', $request->all(), function($msj) use($name, $email, $message, $camsessions){
             
                 $admins = User::where('admin', true)->get();
-                $msj->from($email,"Motoempresa");
+                $msj->from($email,"Camsessions");
                 $msj->subject($message);
                 $msj->to('unsightedcode@gmail.com');
 

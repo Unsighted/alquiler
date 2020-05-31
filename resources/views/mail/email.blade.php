@@ -15,10 +15,6 @@
 			<strong>E-mail:</strong>
             {!! $email !!}
 		</li>
-		<li>
-			<strong>Mensaje:</strong>
-			{!! $name !!}
-		</li>
 	</ul>
 	
 </body>

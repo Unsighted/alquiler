@@ -192,20 +192,20 @@
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nombre</label>
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" id="bloqueoname" name="name" onKeyDown="limitText(this,15);">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" id="bloqueoemail" name="email" onKeyDown="limitText(this,30);">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group label-floating">
                             <label class="control-label">Tu mensaje</label>
-                            <input type="textarea" class="form-control" rows="4" name="message"></input>
+                            <input type="textarea" class="form-control" id="bloqueomensaje" rows="4" name="message" onKeyDown="limitText(this,70);"></input>
                         </div>
 
                         <div class="row">
@@ -247,6 +247,49 @@
                 source: products
             });
         });
+
+
+    function limitText(limitField, limitNum) { 
+    if (limitField.value.length > limitNum) { 
+     limitField.value = limitField.value.substring(0, limitNum); 
+    } 
+} 
+
+    window.onload = function() {
+    var myInputname = document.getElementById('bloqueoname');
+    var myInputemail = document.getElementById('bloqueoemail');
+    var myInputmensaje = document.getElementById('bloqueomensaje');
+
+    myInputname.onpaste = function(e) {
+        e.preventDefault();
+        alert("esta acción no está permitida");
+    }
+
+    myInputemail.onpaste = function(e) {
+        e.preventDefault();
+        alert("esta acción no está permitida");
+    }
+
+    myInputmensaje.onpaste = function(e) {
+        e.preventDefault();
+        alert("esta acción no está permitida");
+    }
+    
+    myInputname.oncopy = function(e) {
+        e.preventDefault();
+        alert("esta acción no está permitida");
+        }
+
+    myInputemail.oncopy = function(e) {
+    e.preventDefault();
+    alert("esta acción no está permitida");
+    }
+
+    myInputmensaje.oncopy = function(e) {
+    e.preventDefault();
+    alert("esta acción no está permitida");
+    }
+    }
 
     </script>
 @endsection
