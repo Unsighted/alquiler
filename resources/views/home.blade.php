@@ -259,23 +259,48 @@ $preference->auto_return = "success";
                 </div>
             </div>
             </form>
-           
-            <h1>Grabar vídeo de la webcam y audio del micrófono con JavaScript</h1>
-                <a href="//parzibyte.me/blog" target="_blank">By Parzibyte</a>
-                <div>
-                    <label for="dispositivosDeAudio">Micrófono:</label><br>
-                    <select name="dispositivosDeAudio" id="dispositivosDeAudio"></select>
-                    <br><br>
-                    <label for="dispositivosDeVideo">Cámara:</label><br>
-                    <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
-                    <br><br>
-                    <video muted="muted" id="video"></video>
-                    <br><br>
-                    <p id="duracion"></p>
-                    <br>
-                    <button id="btnComenzarGrabacion">Comenzar</button>
-                    <button id="btnDetenerGrabacion">Detener</button>
+
+            <a data-toggle="modal" data-target="#sesion" data-dismiss="modal" data-backdrop="false"  type="button" rel="tooltip" title="sesión webcam" class="btn btn-danger btn-xs">
+                <i class="material-icons">camera_alt</i>
+            </a>
+
+            <div class="modal fade" id="sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header btn-negro">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span class="material-icons">cancel</span>
+                                </button>
+                                <button class="btn btn-danger"><i class="material-icons">play_arrow</i></button>
+                                <h2>Sesión Activa</h2>
+                            </div>
+                            <div class="modal-body btn-negro">
+                           
+                                <div>
+                                    <label for="dispositivosDeAudio">Micrófono:</label><br>
+                                    <select name="dispositivosDeAudio" id="dispositivosDeAudio"></select>
+                                    <br><br>
+                                    <label for="dispositivosDeVideo">Cámara:</label><br>
+                                    <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
+                                    <br><br>
+                                    <video muted="muted" id="video"></video>
+                                    <br><br>
+                                    <p id="duracion"></p>
+                                    <br>
+                                   
+                                    <!-- <button >Detener</button> -->
+                                </div>
+                            </div>
+                            <div class="modal-footer btn-negro">
+                                <button type="button" class="btn btn-success" id="btnComenzarGrabacion" data-dismiss="modal">Iniciar cam</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnDetenerGrabacion">cerrar ventana</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+           
                 <script src="../js/script.js"></script>
             
 
