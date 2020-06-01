@@ -115,7 +115,16 @@ $preference->auto_return = "success";
 @endsection    
 
 
-<html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grabar vídeo de la webcam y audio del micrófono con JavaScript by parzibyte</title>
+</head>
+    
 
 <div class="header header-filter" style="background-image: url('{{ asset('img/wallpaper.jpg') }}');">
 </div>
@@ -263,7 +272,7 @@ $preference->auto_return = "success";
             <a data-toggle="modal" data-target="#sesion" data-dismiss="modal" data-backdrop="false"  type="button" rel="tooltip" title="sesión webcam" class="btn btn-danger btn-xs">
                 <i class="material-icons">camera_alt</i>
             </a>
-
+<body>
             <div class="modal fade" id="sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -283,7 +292,7 @@ $preference->auto_return = "success";
                                     <label for="dispositivosDeVideo">Cámara:</label><br>
                                     <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
                                     <br><br>
-                                    <video muted="muted" id="video"></video>
+                                    <video controls style="border: 1px solid rgb(14, 168, 234); width: 90%;" autoplay muted="muted" id="video"></video>
                                     <br><br>
                                     <p id="duracion"></p>
                                     <br>
@@ -300,7 +309,7 @@ $preference->auto_return = "success";
                 </div>
             </div>
 
-           
+</body>
                 <script src="../js/script.js"></script>
             
 
