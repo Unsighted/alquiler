@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grabar vídeo de la webcam y audio del micrófono con JavaScript by parzibyte</title>
+</head>
+<!--
+    * Grabar vídeo y audio obtenido del micrófono y cámara web
+    * con JavaScript, seleccionando el dispositivo de grabación de audio
+    * y el dispositivo de vídeo (cámara web) de una lista; 
+    * usando MediaRecorder y getUserMedia
+    * 
+    * @author parzibyte
+    * @see https://parzibyte.me/blog
+-->
+
+<body>
+                @if (session('notification'))
+                    <div class="btn btn-primary">
+                        <h4>{{ session('notification') }}</h4>
+                    </div>
+                @endif
+    <a href="//parzibyte.me/blog" target="_blank">By Parzibyte</a>
+    <div>
+        <label for="dispositivosDeAudio">Micrófono:</label><br>
+        <select name="dispositivosDeAudio" id="dispositivosDeAudio"></select>
+        <br><br>
+        <label for="dispositivosDeVideo">Cámara:</label><br>
+        <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
+        <br><br>
+        <video muted="muted" id="video"></video>
+        <br><br>
+        <p id="duracion"></p>
+        <br>
+        <button id="btnComenzarGrabacion">Comenzar</button>
+        <button id="btnDetenerGrabacion">Detener</button>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

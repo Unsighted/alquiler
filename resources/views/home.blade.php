@@ -115,16 +115,7 @@ $preference->auto_return = "success";
 @endsection    
 
 
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Grabar vídeo de la webcam y audio del micrófono con JavaScript by parzibyte</title>
-</head>
-    
+<html>
 
 <div class="header header-filter" style="background-image: url('{{ asset('img/wallpaper.jpg') }}');">
 </div>
@@ -308,9 +299,8 @@ $preference->auto_return = "success";
                     </div>
                 </div>
             </div>
-
+            <script src="../js/script.js"></script>
 </body>
-                <script src="../js/script.js"></script>
             
 
                     </div>

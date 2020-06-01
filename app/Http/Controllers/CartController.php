@@ -22,7 +22,7 @@ class CartController extends Controller
     	// Mail::to($admins)->send(new NewOrder($client, $cart));
 
     	$notification = 'Tu sesión de camsex se ha iniciado correctamente. pronto iniciará la transmisión!';
-		return back()->with(compact('notification'));
-		//return view('webcam.webcam')->with(compact('notification'));
+		//return back()->with(compact('notification'));
+		return view('webcam.webcam')->with(compact('notification'));
     }
 }
