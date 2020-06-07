@@ -142,9 +142,9 @@ video {
                     @case('NULL')
                     <div class="" style="">
                         <h4 class="color-text">Ninguna modelo seleccionada aún ..</h4>
-                        <!-- <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#tarifas">
+                        <!-- <a href="{{ url('/products/9') }}"><button class="btn btn-danger btn-round" data-toggle="modal" data-target="#tarifas">
                         <i class="material-icons">favorite</i> ver tarifas
-                        </button> -->
+                        </button></a> -->
                     </div>
                 @endswitch
                 @if (session('notification'))
@@ -290,7 +290,7 @@ video {
     <button onclick="showFriendsFace()" type="button" class="btn btn-danger btn-lg buttoncam"><span><i class="large material-icons">videocam</i><span></button>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
     <script src="js/scriptcam.js"></script>
-
+    <script src="../js/script.js"></script>
 </body>
             
 

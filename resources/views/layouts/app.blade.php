@@ -155,7 +155,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     @guest
                         <li><a href="{{ route('login') }}"><button class="btn btn-info">Ingresar</button></a></li>
-                        <li><a href="{{ route('register') }}"><button class="btn btn-danger" >Registro</button></a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -163,10 +162,11 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/home') }}">Carrito de compras</a>
-                                </li>
+                               
                                 @if (auth()->user()->admin)
+                                <li>
+                                  <a href="{{ route('register') }}">Registro de usuario</a>
+                                </li>  
                                 <li>
                                     <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
                                 </li>
@@ -174,6 +174,9 @@
                                     <a href="{{ url('/admin/products') }}">Gestionar modelos</a>
                                 </li>
                                 @endif
+                                <li>
+                                    <a href="{{ url('/home') }}">Carrito de compras</a>
+                                </li>
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
