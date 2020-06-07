@@ -175,13 +175,13 @@ video {
                             <span class="card btn btn-pastilla">{{ auth()->user()->cart->status }}</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#tasks" role="tab" data-toggle="tab" checked>
                         <a data-toggle="modal" data-target="#sesion" data-dismiss="modal" data-backdrop="false"  type="button" rel="tooltip" title="sesión webcam" class="btn btn-warning btn-xs">
                         <i class="material-icons">camera_alt</i>
                         </a>
                         </a>
-                    </li>
+                    </li> -->
                     @endswitch
                 </ul>
                </div> 

@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'unsightedcode@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'MotoEmpresa'),
+        'name' => env('MAIL_FROM_NAME', 'Sexsessions'),
     ],
 
     /*
