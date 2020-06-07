@@ -59,12 +59,27 @@ $preference->auto_return = "success";
 
 ?>
 
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+
 @section('styles')
     <style>
 
-    #tarifas{
-        z-index: -1; 
-    }
+video {
+  background-color: #ddd;
+  border-radius: 7px;
+  margin: 10px 0px 0px 10px;
+  width: 320px;
+  height: 240px;
+}
+
+.buttoncam {
+  margin: 5px 0px 0px 10px !important;
+  width: 654px;
+}
+
 
     .btn-color{
         background-color: #white;
@@ -132,9 +147,9 @@ $preference->auto_return = "success";
                     @case('NULL')
                     <div class="" style="">
                         <h4 class="color-text">Ninguna modelo seleccionada aún ..</h4>
-                        <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#tarifas">
+                        <!-- <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#tarifas">
                         <i class="material-icons">favorite</i> ver tarifas
-                    </button>
+                        </button> -->
                     </div>
                 @endswitch
                 @if (session('notification'))
@@ -142,40 +157,6 @@ $preference->auto_return = "success";
                         <h4>{{ session('notification') }}</h4>
                     </div>
                 @endif
-           
-                <div class="modal fade" id="tarifas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Seleccione la cantidad de HS que desea agregar a la sesión</h4>
-                    </div>
-                   
-                        <div class="modal-body">
-
-                        <div class="togglebutton">
-                        <label>
-                            <input type="checkbox" name="quantity" value="1" checked=""> 
-                            <b>1 HS<b>
-                        </label>
-                        </div>
-
-                        <div class="togglebutton">
-                        <label>
-                            <input type="checkbox" name="quantity" value="2" checked=""> 
-                            <b>2 HS<b>
-                        </label>
-                        </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            
-                        </div>
-                    </form>
-                    </div>
-                </div>
-                </div>
-
 
                 <div class="container card colorfondo" style="width: 600px;">
                     <div class="panel card tarjeta" style="width:auto; padding:12px; margin-top:15px;">
@@ -197,6 +178,13 @@ $preference->auto_return = "success";
                             <i class="material-icons">check</i>
                             sesión de sexcam
                             <span class="card btn btn-pastilla">{{ auth()->user()->cart->status }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tasks" role="tab" data-toggle="tab" checked>
+                        <a data-toggle="modal" data-target="#sesion" data-dismiss="modal" data-backdrop="false"  type="button" rel="tooltip" title="sesión webcam" class="btn btn-warning btn-xs">
+                        <i class="material-icons">camera_alt</i>
+                        </a>
                         </a>
                     </li>
                     @endswitch
@@ -260,11 +248,8 @@ $preference->auto_return = "success";
             </div>
             </form>
 
-            <a data-toggle="modal" data-target="#sesion" data-dismiss="modal" data-backdrop="false"  type="button" rel="tooltip" title="sesión webcam" class="btn btn-danger btn-xs">
-                <i class="material-icons">camera_alt</i>
-            </a>
-<body>
-            <div class="modal fade" id="sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<body  onload="showMyFace()">
+            <!-- <div class="modal fade" id="sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header btn-negro">
@@ -275,7 +260,7 @@ $preference->auto_return = "success";
                                 <h2>Sesión Activa</h2>
                             </div>
                             <div class="modal-body btn-negro">
-                           
+                            <br>
                                 <div>
                                     <label for="dispositivosDeAudio">Micrófono:</label><br>
                                     <select name="dispositivosDeAudio" id="dispositivosDeAudio"></select>
@@ -283,15 +268,16 @@ $preference->auto_return = "success";
                                     <label for="dispositivosDeVideo">Cámara:</label><br>
                                     <select name="dispositivosDeVideo" id="dispositivosDeVideo"></select>
                                     <br><br>
-                                    <video controls style="border: 1px solid rgb(14, 168, 234); width: 90%;" autoplay muted="muted" id="video"></video>
+                                    <video controls style="border: 1px solid rgb(14, 168, 234); width: 100%;" autoplay muted="muted" id="video"></video>
                                     <br><br>
                                     <p id="duracion"></p>
                                     <br>
                                    
-                                    <!-- <button >Detener</button> -->
+                                    
                                 </div>
                             </div>
                             <div class="modal-footer btn-negro">
+                            <br>
                                 <button type="button" class="btn btn-success" id="btnComenzarGrabacion" data-dismiss="modal">Iniciar cam</button>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnDetenerGrabacion">cerrar ventana</button>
                             </div>
@@ -299,7 +285,17 @@ $preference->auto_return = "success";
                     </div>
                 </div>
             </div>
-            <script src="../js/script.js"></script>
+            <script src="../js/script.js"></script> -->
+
+            
+
+    <video id="yourVideo" autoplay muted playsinline></video>
+    <video id="friendsVideo" autoplay playsinline></video>
+    <br />
+    <button onclick="showFriendsFace()" type="button" class="btn btn-primary btn-lg"><span class="buttoncam glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Call</button>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script src="js/scriptcam.js"></script>
+
 </body>
             
 
