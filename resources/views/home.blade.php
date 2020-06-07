@@ -47,9 +47,9 @@ $preference->save();
 
     
 $preference->back_urls = array(
-    "success" => "http://motoempresa.me/success",
-    "failure" => "http://motoempresa.me/failure",
-    "pending" => "http://motoempresa.me/pending"
+    "success" => "http://sexsessions.me/success",
+    "failure" => "http://sexsessions.me/failure",
+    "pending" => "http://sexsessions.me/pending"
 );
 
 

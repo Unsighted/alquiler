@@ -95,7 +95,7 @@
           box-shadow: 0 14px 26px -12px rgba(176, 39, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(176, 39, 39, 0.2);
           }
 
-          .motoempresa{
+          .sexsessions{
             font-family: 'Old Standard TT', serif;
             font-size: 20px;
             width:300px;
@@ -147,7 +147,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{ url('/') }}"><button class="btn btn-negro motoempresa">Sex Sessions <img src="{{ asset('/img/kiss.png') }}" alt="Sex Sessions" width="100" height="100"></button></a>
+                <a href="{{ url('/') }}"><button class="btn btn-negro sexsessions">Sex Sessions <img src="{{ asset('/img/kiss.png') }}" alt="Sex Sessions" width="100" height="100"></button></a>
                
             </div>
 
