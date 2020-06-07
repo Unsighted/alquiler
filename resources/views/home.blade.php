@@ -59,11 +59,6 @@ $preference->auto_return = "success";
 
 ?>
 
-<head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-
 @section('styles')
     <style>
 
@@ -292,7 +287,7 @@ video {
     <video id="yourVideo" autoplay muted playsinline></video>
     <video id="friendsVideo" autoplay playsinline></video>
     <br />
-    <button onclick="showFriendsFace()" type="button" class="btn btn-primary btn-lg"><span class="buttoncam glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Call</button>
+    <button onclick="showFriendsFace()" type="button" class="btn btn-danger btn-lg buttoncam"><span><i class="large material-icons">videocam</i><span></button>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
     <script src="js/scriptcam.js"></script>
 
