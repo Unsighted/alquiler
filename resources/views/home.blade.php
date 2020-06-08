@@ -13,10 +13,7 @@ require __DIR__ .  '../../../../vendor/autoload.php';
 
 // Agrega credenciales
 // Credenciales de cuenta mercadopago vendedor
-// MercadoPago\SDK::setClientId('5057708401642766');
-// MercadoPago\SDK::setClientSecret('UUm6SO26jhT0jXHJNpTk8Z0Mg2fcRuw9');
-
-MercadoPago\SDK::setAccessToken("APP_USR-8493356599144380-043018-896ef47b8dc9c52283494f402966c650-442797623");
+MercadoPago\SDK::setClientId('5057708401642766');
 MercadoPago\SDK::setClientSecret('UUm6SO26jhT0jXHJNpTk8Z0Mg2fcRuw9');
 
 //orig de mercadopago esteban
