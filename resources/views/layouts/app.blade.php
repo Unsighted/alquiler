@@ -9,7 +9,7 @@
     <title>@yield('title', config('app.name'))</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
+</script>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inconsolata:wght@700&family=Merienda&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Merienda&family=Sacramento&display=swap" rel="stylesheet">
@@ -22,6 +22,11 @@
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet"/>
+  <script src="{{ asset('js/toastr.min.js') }}"></script>
+
     @section('styles')
         <style>
 
@@ -69,7 +74,7 @@
           }
 
           .butt{
-            background-color: crimson;
+            background-color: palevioletred;
             border: none;
             border-radius: 3px;
             color: #FFFFFF;
@@ -85,20 +90,15 @@
 
           }
 
-          /* .butt:hover{
-            background-color: rgb(209, 50, 78);
-            box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12);
-          } */
-
           .butt:focus, .butt:active, .butt:hover{
-          background-color: rgb(196, 33, 62);
+          background-color: palevioletred;
           box-shadow: 0 14px 26px -12px rgba(176, 39, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(176, 39, 39, 0.2);
           }
 
-          .sexsessions{
+          .tienda{
             font-family: 'Old Standard TT', serif;
             font-size: 20px;
-            width:300px;
+            width:200px;
           }
 
           .landing-page .header .title {
@@ -126,10 +126,49 @@
         }
 
         .btn-negro{
-            background-color: #000;
-            color: white;
+          background-color: palevioletred;
+          background-image: linear-gradient(225deg, palevioletred, palevioletred, palevioletred);
+          color: white;
         }
 
+        .btn-negro:active{
+          background-color: palevioletred;
+          background-image: linear-gradient(225deg, palevioletred, palevioletred, palevioletred);
+          color: white;
+        }
+
+        .btn-pastilla:active{
+          background-color: palevioletred;
+          background-image: linear-gradient(225deg, palevioletred, palevioletred, palevioletred);
+          color: white;
+        }
+
+        
+        @media (max-width: 767px){
+            .navbar .navbar-nav .open .dropdown-menu > li > a {
+        margin: 10px;
+        background-color: white;
+        color: crimson;
+        padding: 20px;
+
+        }
+
+        .navbar .navbar-nav > li.open > .dropdown-menu{
+            background-color: palevioletred;
+        }
+      }
+
+      body::-webkit-scrollbar {
+        width: 12px;               /* width of the entire scrollbar */
+      }
+      body::-webkit-scrollbar-track {
+        background: black;        /* color of the tracking area */
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: palevioletred;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 1px solid black;  /* creates padding around scroll thumb */
+      }
 
         </style>
 
@@ -143,40 +182,27 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="material-icons">view_headline</span>
+                    <!-- <span class="material-icons">shopping_cart</span>
+                    <span class="material-icons">shopping_cart</span> -->
                 </button>
-                <a href="{{ url('/') }}"><button class="btn btn-negro sexsessions">Sex Sessions <img src="{{ asset('/img/kiss.png') }}" alt="Sex Sessions" width="100" height="100"></button></a>
-               
+                <!-- <a href="{{ url('/') }}"><button class="btn btn-negro tienda">Mi Tienda <img src="{{ asset('/img/carritoonline.png') }}" alt="Tienda Online" width="50" height="50"></button></a> -->
+                <a href="{{ url('/') }}"><button class="btn btn-negro tienda">Ir a la Tienda <span class="material-icons" alt="Tienda Online" width="50" height="50"></span></button></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
                     @guest
-                        <li><a href="{{ route('login') }}"><button class="btn btn-info">Ingresar</button></a></li>
+                        <li><a href="{{ route('login') }}"><button class="btn" style="background-color: palevioletred; opacity: 0.9;">Ingresar</button></a></li>
+                        <li><a href="{{ route('register') }}"><button class="btn" style="background-color: palevioletred; opacity: 0.9;">Registrarse</button></a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->username }} <span class="caret"></span>
+                                {{ Auth::user()->username }} <span class="material-icons">person</span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                
-                                @if (auth()->user()->admin)
-                                <li>
-                                  <a href="{{ route('register') }}">Registro de usuario</a>
-                                </li>  
-                                <li>
-                                    <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/admin/products') }}">Gestionar modelos</a>
-                                </li>
-                                @endif
-                                <li>
-                                    <a href="{{ url('/home') }}">Carrito de compras</a>
-                                </li>
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -190,17 +216,109 @@
                                 </li>
                             </ul>
                         </li>
+
+                        @if (auth()->user()->admin)
+                          <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                               Configuración <span class="material-icons">settings</span>
+                            </a>
+                           
+
+                            <ul class="dropdown-menu" role="menu">
+                               
+                                <li>
+                                    <a href="{{ url('/admin/categories') }}">Gestionar categorías</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/admin/products') }}">Gestionar productos</a>
+                                </li>
+                            </ul>
+                          </li>
+
+                          <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                               Pedidos <span class="material-icons">mail</span>
+                               <span class="btn-warning btn-xs gmail"></span>
+                            </a>
+                            <!-- {{ DB::table('gmails')->count() }} -->
+                            <ul class="dropdown-menu" role="menu">
+                               
+                                <li>
+                                    <a href="{{ url('/admin/orders') }}">Gestionar pedidos</a>
+                                </li>
+                            </ul>
+                          </li>
+                          
+                          @endif
+                          <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                carrito <span class="material-icons">shopping_cart</span>
+                                <span class="btn-danger btn-xs">{{ auth()->user()->cart->details->count() }}</span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                  <li>
+                                      <a href="{{ url('/home') }}">Carrito de compras</a>
+                                  </li>
+                            </ul>
+                          </li>
                     @endguest
                 </ul>
             </div>
         </div>
     </nav>
 
+    
+<script>
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+
+ $(document).ready(function() {
+    $('.gmail').prop('hidden', true)
+    setInterval( "actualizar()", 2000 );          
+  });
+
+    function actualizar(){
+      
+      $.ajax({
+      url: '/admin/count',
+      type: 'GET',
+      success: function(response) {
+
+      if(response.length > 0){
+
+        $('.gmail').text(response)
+        $('.ordernum').text(response)
+        $('.gmail').fadeToggle('slow')
+      }else{
+        $('.gmail').prop('hidden', true)
+      }
+    }
+  });
+}
+
+</script>
+
+
     <div class="wrapper">
         @yield('content')
     </div>
 </body>
-
+    
     <!--   Core JS Files   -->
     <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>

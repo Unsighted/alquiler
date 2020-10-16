@@ -10,19 +10,24 @@ use Mail;
 
 class CartController extends Controller
 {
-    public function update()
+    public function update(Request $request)
     {
-    	$client = auth()->user(); // Usuario autenticado.
+		
+		// dd($request['pais']);
+		$request = $request;
+		$client = auth()->user(); // Usuario autenticado.
     	$cart = $client->cart; // Obtiene el carrito de compras del usuario autenticado.
-    	$cart->status = 'Pending';
-    	$cart->order_date = Carbon::now(); // Obtiene la hora de orden automáticamente.
-    	$cart->save(); // UPDATE - Actualiza el carrito.
+    	//$cart->status = 'Pendiente';
+    	//$cart->order_date = Carbon::now(); // Obtiene la hora de orden automáticamente.
+		//$cart->save(); // UPDATE - Actualiza el carrito.
+		
+		//  $mail = User::where('email', auth()->user()->email)->get();
+		//  $user = $mail[0]['email'];
+    	 $admins = User::where('admin', true)->get();
+		 Mail::to($admins)->send(new NewOrder($client, $cart, $request));
 
-    	// $admins = User::where('admin', true)->get();
-    	// Mail::to($admins)->send(new NewOrder($client, $cart));
-
-    	$notification = 'Tu sesión de camsex se ha iniciado correctamente. pronto iniciará la transmisión!';
-		return back()->with(compact('notification'));
-		//return view('webcam.webcam')->with(compact('notification'));
+		 return redirect()->action(
+			'HomeController@index'
+		);
     }
 }

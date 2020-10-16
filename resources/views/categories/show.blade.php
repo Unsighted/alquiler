@@ -31,7 +31,7 @@
 @endsection
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/wallpaper.jpg') }}');"></div>
+<div class="header header-filter" style="background-image: url('{{ asset('img/fondo.jpg') }}');"></div>
 
 <div class="main main-raised">
     <div class="profile-content">
@@ -63,11 +63,13 @@
                     @foreach ($products as $product)
                     <div class="col-md-4">
                         <div class="team-player">
-                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-circle">
+                        <a href="{{ url('/products/'.$product->id) }}">
+                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="card">
+                        </a>    
                             <h4 class="title">
                                 <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                             </h4>
-                            <p class="no-margin">$ {{ $product->price }}</p>
+                            <p class="no-margin" style="color: palevioletred;">$ {{ $product->price }}</p>
                             <p class="description">{{ $product->description }}</p>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 @section('body-class', 'product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/wallpaperccc.jpg') }}');">
+<div class="header header-filter" style="background-image: url('{{ asset('img/fondo.jpg') }}');">
 </div>
 
 <div class="main main-raised">
@@ -31,15 +31,17 @@
                             <label class="control-label">Nombre de la categoría</label>
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
+                        <div>
+                            <input class="form-control" placeholder="Descripción de la categoría"  name="description">{{ old('description') }}</input>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label class="control-label">Imagen de la categoría</label>
                         <input type="file" name="image">
                     </div>
+                   
                 </div>
-
-                <textarea class="form-control" placeholder="Descripción de la categoría" rows="5" name="description">{{ old('description') }}</textarea>
-
+                
                 <button class="btn btn-primary">Registrar categoría</button>
                 <a href="{{ url('/admin/categories') }}" class="btn btn-default">Cancelar</a>
             </form>

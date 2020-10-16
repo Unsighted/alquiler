@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Category;
 use File;
+use App\Product;
   
 class CategoryController extends Controller
 {
@@ -77,7 +78,20 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $category->delete(); // DELETE
-        return back();
+        $producto = Product::where('category_id','like','%'.$category['id'].'%')->get();
+
+        if($producto->count() > 0){
+
+        $notification = ' ';
+    	return back()->with(compact('notification'));
+
+        }else{
+
+        if($producto->count() < 1){
+
+            $category->delete(); // DELETE
+            return back();
+        }
     }
+  }
 }

@@ -16,9 +16,11 @@ class HomeController extends Controller
 
 
     public function index(CartDetail $cart_detail)
-    {
-        $details = $cart_detail->paginate(3);
-         //dd($details->items());
+    {   
+        $usuario = auth()->user()->cart->id;
+        
+        $details = CartDetail::where('cart_id','like','%'.$usuario.'%')->get();
+        //dd($details);
         return view('home')->with(compact('details'));
        
     }

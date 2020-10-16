@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\ProductImage;
+use App\Wallpaper;
+use App\Carousel;
 use File;
 
 class ImageController extends Controller
@@ -33,11 +35,57 @@ class ImageController extends Controller
 	    	// $productImage->featured = false;
 	    	$productImage->product_id = $id;
 	    	$productImage->save(); // INSERT
-    	}
-
+		}
 
     	return back();
-    }
+	}
+	
+	public function portada(Request $request)
+    {
+
+		//eliminar el archivo de la BD
+		\DB::table('wallpapers')->delete();
+		
+    	// guardar la img en nuestro directorio local
+		$file = $request->file('portada');
+    	$path = public_path() . '/images/portada';
+	    $fileName = uniqid() . $file->getClientOriginalName();
+		$moved = $file->move($path, $fileName);
+
+		if ($moved) {
+			
+	    	$wallpaperImage = new Wallpaper();
+	    	$wallpaperImage->path = $fileName;
+	    	$wallpaperImage->save(); // INSERT
+		}
+
+		return back();
+	}
+
+	public function carousel(Request $request)
+    {
+
+		//eliminar el archivo de la BD
+		
+		$image = Carousel::first();
+		$image->delete();
+		
+    	// guardar la img en nuestro directorio local
+		$file = $request->file('carousel');
+    	$path = public_path() . '/images/carousel';
+	    $fileName = uniqid() . $file->getClientOriginalName();
+		$moved = $file->move($path, $fileName);
+
+		if ($moved) {
+			
+	    	$CarouselImage = new Carousel();
+	    	$CarouselImage->path = $fileName;
+	    	$CarouselImage->save(); // INSERT
+		}
+
+		return back();
+	}
+	
 
     public function destroy(Request $request, $id)
     {

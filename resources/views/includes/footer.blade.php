@@ -30,7 +30,7 @@
         <script>
             document.write(new Date().getFullYear());
         </script>
-      Sexsessions
+      Tienda Online
         </div>
     </div>
 </footer>

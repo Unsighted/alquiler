@@ -5,23 +5,37 @@
 @section('body-class', 'product-page')
 
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset('img/wallpaperccc.jpg') }}');">
+
+@section('styles')
+    <style>
+
+    .flex{
+    display: inline-block;
+    justify-content: center;	
+    }
+    
+    </style>
+@endsection    
+
+<div class="header header-filter" style="background-image: url('{{ asset('img/fondo.jpg') }}');">
 </div>
 
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
-          <div class="w3-container w3-responsive w3-threequarter" style="height:500px;">
+          <div class="" style="height:500px;">
               <div class="w3-container w3-card-4 w3-padding w3-margin-bottom" style="background-color: #9c27b0">
-                <h4 style="color: rgb(255, 255, 255);">Listado de Modelos</h4>
+                <h4 style="color: rgb(255, 255, 255);">Listado de Productos</h4>
               </div>
             <div class="team">
-                <div class="row">
-                    <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round" style="margin-bottom: 45px">Nueva modelo</a>
-                  <table class = "w3-table w3-striped w3-margin-bottom w3-centered w3-card-4">
+                <div class="container">
+                    <div>
+                     <a href="{{ url('/admin/products/create') }}" class="btn btn-primary btn-round flex" style="margin-bottom: 3px">Nuevo producto</a>
+                    </div>
+                  <table class = "table table-responsive table-striped panel flex" style="width:auto; overflow-x; scroll;">
                         <thead>
                             <tr style="color: rgb(255, 255, 255); background-color:rgb(221, 104, 212);">
-                                <th class="text-center">#</th>
+                                <!-- <th class="text-center">#</th> -->
                                 <th class="text-center">Nombre</th>
                                 <th class="text-center">Descripción</th>
                                 <th class="text-center">Categoría</th>
@@ -35,7 +49,7 @@
                         <tbody>
                             @foreach ($products as $product)
                             <tr>
-                                <td class="text-center">{{ $product->id }}</td>
+                                <!-- <td class="text-center">{{ $product->id }}</td> -->
                                 <td class="text-center">{{ $product->name }}</td>
                                 <td class="text-center">{{ $product->description }}</td>
                                 <td class="text-center">{{ $product->category_name }}</td>

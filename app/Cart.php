@@ -13,10 +13,10 @@ class Cart extends Model
 
     public function getTotalAttribute()
     {
-    	$total = 1.0;
+    	$total = 0;
     	foreach ($this->details as $detail) {
-    		$total += $detail->quantity * 999;
-    	}
-    	return $total;
+    		$total += $detail->quantity * $detail->product->price;
+      }
+      return $total;
     }
 }
